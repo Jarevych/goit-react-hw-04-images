@@ -6,6 +6,7 @@ import Modal from './Modal';
 import Searchbar from './Searchbar';
 import ImageGallery from './ImageGallery';
 import { useEffect } from 'react';
+import { useCallback } from 'react';
 
 export function App() {
   const [query, setQuery] = useState(null);
@@ -35,7 +36,7 @@ export function App() {
     } catch (error) {}
   };
 
-  const fetchImagesByQuery = async () => {
+  const fetchImagesByQuery = useCallback( async () => {
     try {
       setLoadMore(false);
       setIsLoading(true);
@@ -48,12 +49,12 @@ export function App() {
     } finally {
       setIsLoading(false);
     }
-  };
+  }, [query, page]);
 
   useEffect(() => {
   if (!query) return;
   fetchImagesByQuery();
-}, [query, page]);
+}, [query, page, fetchImagesByQuery]);
 
   function openFullSize(imageUrl, imageTag) {
     setSelectedImageUrl(imageUrl);

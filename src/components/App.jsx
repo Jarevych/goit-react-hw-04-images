@@ -49,6 +49,7 @@ export function App() {
       setIsLoading(false);
     }
   };
+
   useEffect(() => {
     if (!query) return;
     fetchImagesByQuery();

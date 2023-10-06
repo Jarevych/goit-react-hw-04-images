@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Modal(onClose, imageUrl, imageTag) {
+function Modal({onClose, imageUrl, imageTag}) {
   const handleCloseModal = e => {
     if (e.target === e.currentTarget) {
       onClose();

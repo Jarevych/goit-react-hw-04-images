@@ -51,14 +51,14 @@ export function App() {
   };
 
   useEffect(() => {
-    if (!query) return;
-    fetchImagesByQuery();
-  }, [query, page]);
+  if (!query) return;
+  fetchImagesByQuery();
+}, [query, page]);
 
-  const openFullSize = (imageUrl, imageTag) => {
+  function openFullSize(imageUrl, imageTag) {
     setSelectedImageUrl(imageUrl);
     setSelectedImageTag(imageTag);
-  };
+  }
   const handleCloseModal = () => {
     setSelectedImageUrl(null);
   };

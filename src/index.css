@@ -1,0 +1,45 @@
+@import-normalize; /* bring in normalize.css styles */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  align-content: center;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+header {
+  display: flex;
+  padding: 20px;
+  background-color: rgb(34, 75, 153);
+}
+button:active {
+  background-color: #2d19e2;
+}
+form {
+  height: 38px;
+  width: 400px;;
+}
+ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+li {
+  display: flex;
+}
+.spinner {
+  display: flex;
+  position: relative;
+  top: 50%;
+  left: 50%
+}

@@ -1,21 +1,17 @@
 import React from 'react';
 
-class Modal extends React.Component {
-  handleCloseModal = e => {
-    const { onClose } = this.props;
+function Modal(onClose, imageUrl, imageTag) {
+  const handleCloseModal = e => {
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
-  render() {
-    const { imageUrl, imageTag } = this.props;
-    return (
-      <div className="overlay visible" onClick={this.handleCloseModal}>
-        <div className="modal visible">
-          <img src={imageUrl} alt={imageTag} />
-        </div>
+  return (
+    <div className="overlay visible" onClick={handleCloseModal}>
+      <div className="modal visible">
+        <img src={imageUrl} alt={imageTag} />
       </div>
-    );
-  }
+    </div>
+  );
 }
 export default Modal;

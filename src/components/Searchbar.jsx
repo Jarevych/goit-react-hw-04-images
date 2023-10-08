@@ -2,10 +2,21 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-const SearchBar = ({ onSubmit }) => {
+const SearchBar = ({ setQuery, setImages, setPage }) => {
+  const handleSearchSubmit = e => {
+    e.preventDefault();
+    const inputValue = e.currentTarget.elements.searchImage.value;
+    if (inputValue) {
+      setQuery(inputValue);
+      setImages(null);
+      setPage(1);
+      e.currentTarget.reset();
+    }
+  };
+
   return (
     <header className="searchbar">
-      <form className="form" onSubmit={onSubmit}>
+      <form className="form" onSubmit={handleSearchSubmit}>
         <input
           className="input"
           type="text"

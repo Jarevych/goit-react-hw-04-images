@@ -17,17 +17,6 @@ export function App() {
   const [selectedImageUrl, setSelectedImageUrl] = useState(null);
   const [selectedImageTag, setSelectedImageTag] = useState(null);
 
-  const handleSearchSubmit = e => {
-    e.preventDefault();
-    const inputValue = e.currentTarget.elements.searchImage.value;
-    if (inputValue) {
-      setQuery(inputValue);
-      setImages(null);
-      setPage(1);
-      e.currentTarget.reset();
-    }
-  };
-
   const handleLoadMore = async e => {
     e.preventDefault();
     try {
@@ -36,7 +25,7 @@ export function App() {
     } catch (error) {}
   };
 
-  const fetchImagesByQuery = useCallback( async () => {
+  const fetchImagesByQuery = useCallback(async () => {
     try {
       setLoadMore(false);
       setIsLoading(true);
@@ -52,9 +41,9 @@ export function App() {
   }, [query, page]);
 
   useEffect(() => {
-  if (!query) return;
-  fetchImagesByQuery();
-}, [query, page, fetchImagesByQuery]);
+    if (!query) return;
+    fetchImagesByQuery();
+  }, [query, page, fetchImagesByQuery]);
 
   function openFullSize(imageUrl, imageTag) {
     setSelectedImageUrl(imageUrl);
@@ -68,7 +57,7 @@ export function App() {
 
   return (
     <StyledAppContainer>
-      <Searchbar onSubmit={handleSearchSubmit} />
+      <Searchbar setQuery={setQuery} setImages={setImages} setPage={setPage} />
       {isLoading && (
         <div className="spinner">
           <Dna

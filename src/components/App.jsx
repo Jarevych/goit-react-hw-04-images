@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { StyledAppContainer } from './App.styled';
-import { fetchImages } from './api';
+import { fetchImages } from '../api';
 import { Dna } from 'react-loader-spinner';
-import Modal from './Modal';
-import Searchbar from './Searchbar';
-import ImageGallery from './ImageGallery';
+import Modal from './Modal/Modal';
+import Searchbar from './SearchBar/Searchbar';
+import ImageGallery from './ImageGallery/ImageGallery';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
 
